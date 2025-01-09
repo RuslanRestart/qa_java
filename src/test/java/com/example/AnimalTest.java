@@ -8,13 +8,13 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class AnimalGetFoodTest {
+public class AnimalTest {
 
     private final String animalKind;
     private final List<String> expectedFood;
     private final boolean shouldThrowException;
 
-    public AnimalGetFoodTest(String animalKind, List<String> expectedFood, boolean shouldThrowException){
+    public AnimalTest(String animalKind, List<String> expectedFood, boolean shouldThrowException){
         this.animalKind = animalKind;
         this.expectedFood = expectedFood;
         this.shouldThrowException = shouldThrowException;
@@ -40,5 +40,12 @@ public class AnimalGetFoodTest {
                 throw new RuntimeException("Test failed!", e);
             }
         }
+    }
+
+    @Test
+    public void getFamily(){
+        Animal animal = new Animal();
+        String actualFamily = animal.getFamily();
+        assertEquals("Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи", actualFamily);
     }
 }
