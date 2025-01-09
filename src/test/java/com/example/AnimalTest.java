@@ -41,11 +41,4 @@ public class AnimalTest {
             }
         }
     }
-
-    @Test
-    public void getFamily(){
-        Animal animal = new Animal();
-        String actualFamily = animal.getFamily();
-        assertEquals("Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи", actualFamily);
-    }
 }

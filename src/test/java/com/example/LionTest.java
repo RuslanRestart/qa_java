@@ -29,6 +29,15 @@ public class LionTest {
     }
 
     @Test
+    public void lionIncorrectSexConstructorTest() {
+        try {
+            new Lion("Undefined", felineMock);
+        } catch (Exception e) {
+             assertEquals("Используйте допустимые значения пола животного - самей или самка", e.getMessage());
+        }
+    }
+
+    @Test
     public void maleHaveManeTest() {
         try {
             Lion lion = new Lion("Самец", felineMock);
