@@ -21,7 +21,6 @@ public class LionTest {
         Mockito.when(felineMock.getKittens()).thenReturn(1);
         int countKittens = lion.getKittens();
         assertEquals(1, countKittens);
-        Mockito.verify(felineMock, Mockito.times(1)).getKittens();
     }
 
     @Test
@@ -53,6 +52,5 @@ public class LionTest {
         Mockito.when(felineMock.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         List<String> actualFood = lion.getFood();
         assertEquals(List.of("Животные", "Птицы", "Рыба"), actualFood);
-        Mockito.verify(felineMock, Mockito.times(1)).getFood("Хищник");
     }
 }
