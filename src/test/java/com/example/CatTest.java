@@ -24,15 +24,11 @@ public class CatTest {
     }
 
     @Test
-    public void getFoodTest() {
+    public void getFoodTest() throws Exception {
         Cat cat = new Cat(felineMock);
-        try {
-            Mockito.when(felineMock.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-            List<String> catFood = cat.getFood();
-            assertEquals(List.of("Животные", "Птицы", "Рыба"), catFood);
-            Mockito.verify(felineMock, Mockito.times(1)).eatMeat();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        Mockito.when(felineMock.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        List<String> catFood = cat.getFood();
+        assertEquals(List.of("Животные", "Птицы", "Рыба"), catFood);
+        Mockito.verify(felineMock, Mockito.times(1)).eatMeat();
     }
 }

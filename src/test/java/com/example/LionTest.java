@@ -16,16 +16,12 @@ public class LionTest {
     Feline felineMock;
 
     @Test
-    public void getKittensTest() {
-        try {
-            Lion lion = new Lion("Самка", felineMock);
-            Mockito.when(felineMock.getKittens()).thenReturn(1);
-            int countKittens = lion.getKittens();
-            assertEquals(1, countKittens);
-            Mockito.verify(felineMock, Mockito.times(1)).getKittens();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    public void getKittensTest() throws Exception {
+        Lion lion = new Lion("Самка", felineMock);
+        Mockito.when(felineMock.getKittens()).thenReturn(1);
+        int countKittens = lion.getKittens();
+        assertEquals(1, countKittens);
+        Mockito.verify(felineMock, Mockito.times(1)).getKittens();
     }
 
     @Test
@@ -33,42 +29,30 @@ public class LionTest {
         try {
             new Lion("Undefined", felineMock);
         } catch (Exception e) {
-             assertEquals("Используйте допустимые значения пола животного - самей или самка", e.getMessage());
+            assertEquals("Используйте допустимые значения пола животного - самей или самка", e.getMessage());
         }
     }
 
     @Test
-    public void maleHaveManeTest() {
-        try {
-            Lion lion = new Lion("Самец", felineMock);
-            boolean hasMane = lion.doesHaveMane();
-            assertEquals(true, hasMane);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    public void maleHaveManeTest() throws Exception {
+        Lion lion = new Lion("Самец", felineMock);
+        boolean hasMane = lion.doesHaveMane();
+        assertEquals(true, hasMane);
     }
 
     @Test
-    public void femaleNotHaveManeTest(){
-        try {
-            Lion lion = new Lion("Самка", felineMock);
-            boolean hasMane = lion.doesHaveMane();
-            assertEquals(false, hasMane);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    public void femaleNotHaveManeTest() throws Exception {
+        Lion lion = new Lion("Самка", felineMock);
+        boolean hasMane = lion.doesHaveMane();
+        assertEquals(false, hasMane);
     }
 
     @Test
-    public void getLionFoodTest() {
-        try {
-            Lion lion = new Lion("Самец", felineMock);
-            Mockito.when(felineMock.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-            List<String> actualFood = lion.getFood();
-            assertEquals(List.of("Животные", "Птицы", "Рыба"), actualFood);
-            Mockito.verify(felineMock, Mockito.times(1)).getFood("Хищник");
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    public void getLionFoodTest() throws Exception {
+        Lion lion = new Lion("Самец", felineMock);
+        Mockito.when(felineMock.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        List<String> actualFood = lion.getFood();
+        assertEquals(List.of("Животные", "Птицы", "Рыба"), actualFood);
+        Mockito.verify(felineMock, Mockito.times(1)).getFood("Хищник");
     }
 }

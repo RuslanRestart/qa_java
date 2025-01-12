@@ -3,6 +3,7 @@ package com.example;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
+
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -13,13 +14,9 @@ public class FelineTest {
     Feline feline = new Feline();
 
     @Test
-    public void eatMeatTest() {
-        try {
-            List<String> actualFood = feline.eatMeat();
-            assertEquals(List.of("Животные", "Птицы", "Рыба"), actualFood);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    public void eatMeatTest() throws Exception {
+        List<String> actualFood = feline.eatMeat();
+        assertEquals(List.of("Животные", "Птицы", "Рыба"), actualFood);
 
     }
 

@@ -17,7 +17,7 @@ public class AnimalTest {
     public AnimalTest(String animalKind, List<String> expectedFood, boolean shouldThrowException){
         this.animalKind = animalKind;
         this.expectedFood = expectedFood;
-        this.shouldThrowException = shouldThrowException;
+        this.shouldThrowException= shouldThrowException;
     }
 
     @Parameterized.Parameters
